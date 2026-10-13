@@ -9,7 +9,6 @@ import com.mjc.stage2.warehouse.RectangleWarehouse;
 public class RectangleObserver implements Observer {
     @Override
     public void handleEvent(RectangleEvent event) {
-
         Rectangle rectangle = event.getSource();
 
         double sideA = rectangle.getSideA();
@@ -22,7 +21,12 @@ public class RectangleObserver implements Observer {
         RectangleWarehouse warehouse = RectangleWarehouse.getInstance();
 
         RectangleValues val = warehouse.get(id);
-        val.setPerimeter(newPerimeter);
-        val.setSquare(newSquare);
+
+        if (val != null) {
+            val.setPerimeter(newPerimeter);
+            val.setSquare(newSquare);
+        } else {
+            warehouse.put(id, new RectangleValues(newSquare, newPerimeter));
+        }
     }
 }

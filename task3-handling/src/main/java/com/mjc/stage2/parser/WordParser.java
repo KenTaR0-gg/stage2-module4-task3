@@ -17,9 +17,11 @@ public class WordParser extends AbstractTextParser {
         for (char c : chars) {
             SymbolLeaf sl = new SymbolLeaf(TextComponentType.SYMBOL, c);
             abstractTextComponent.add(sl);
-        }
+
             if (nextParser != null) {
                 nextParser.parse(abstractTextComponent, string);
             }
+            abstractTextComponent.add(sl);
+        }
     }
 }
