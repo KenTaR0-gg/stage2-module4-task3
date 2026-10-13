@@ -10,9 +10,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class Product {
-    public double getPrice;
-    public String getName;
     private String name;
     private double price;
     private String manufacture;
+
+    // Пишем геттеры вручную, чтобы Maven не "терял" их при сборке
+    public double getPrice() {
+        return this.price;
+    }
+
+    public String getManufacture() {
+        return this.manufacture;
+    }
 }
