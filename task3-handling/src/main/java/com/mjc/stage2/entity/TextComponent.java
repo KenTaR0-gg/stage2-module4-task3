@@ -13,7 +13,17 @@ public class TextComponent extends AbstractTextComponent {
 
     @Override
     public String operation() {
-        return "";
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < componentList.size(); i++) {
+            sb.append(componentList.get(i).operation());
+
+            if (i < componentList.size() - 1) {
+                sb.append(componentList.get(i).getComponentType().getDelimiter());
+            }
+        }
+
+        return sb.toString();
     }
 
     @Override
