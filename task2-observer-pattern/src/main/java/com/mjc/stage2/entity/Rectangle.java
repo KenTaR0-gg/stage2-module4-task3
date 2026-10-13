@@ -2,8 +2,13 @@ package com.mjc.stage2.entity;
 
 import com.mjc.stage2.Observable;
 import com.mjc.stage2.Observer;
+import com.mjc.stage2.event.RectangleEvent;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Rectangle implements Observable {
+    private List<Observer> observers = new ArrayList<>();
     private int id;
     private double sideA;
     private double sideB;
@@ -42,18 +47,33 @@ public class Rectangle implements Observable {
     }
 
     @Override
-    public void addObserver(Observer o) {
-
+    public void addObserver(Observer observer) {
+        if (observer != null) {
+            observers.add(observer);
+        }
     }
 
     @Override
     public void removeObserver(Observer o) {
-
+        observers.remove(o);
     }
 
     @Override
     public void notifyObserver() {
+        // Создаем событие, передавая в него текущий прямоугольник (this)
+        RectangleEvent event = new RectangleEvent(this);
 
+        // Рассылаем это событие всем подписанным наблюдателям
+        for (Observer observer : observers) {
+            observer.handleEvent(event);
+        }
     }
 
+    public List<Observer> getObservers() {
+        return observers;
+    }
+
+    public void setObservers(List<Observer> observers) {
+        this.observers = observers;
+    }
 }

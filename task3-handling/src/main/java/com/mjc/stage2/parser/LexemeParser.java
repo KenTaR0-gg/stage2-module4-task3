@@ -14,11 +14,12 @@ public class LexemeParser extends AbstractTextParser{
         String[] words = string.split(LEXEME_REGEX);
         for (String str : words) {
             TextComponent lec = new TextComponent(TextComponentType.WORD);
-            abstractTextComponent.add(lec);
 
             if (nextParser != null) {
                 nextParser.parse(lec, str);
             }
+
+            abstractTextComponent.add(lec);
         }
     }
 }
