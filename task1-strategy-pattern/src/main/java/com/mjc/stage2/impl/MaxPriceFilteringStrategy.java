@@ -13,7 +13,7 @@ public class MaxPriceFilteringStrategy implements FilteringStrategy {
 
     public boolean filter (Product product) {
 
-        return product.getPrice <= maxPrice;
+        return product.getPrice() <= this.maxPrice;
 
     }
 }

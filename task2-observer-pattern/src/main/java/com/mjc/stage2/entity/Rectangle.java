@@ -1,6 +1,9 @@
 package com.mjc.stage2.entity;
 
-public class Rectangle {
+import com.mjc.stage2.Observable;
+import com.mjc.stage2.Observer;
+
+public class Rectangle implements Observable {
     private int id;
     private double sideA;
     private double sideB;
@@ -37,5 +40,20 @@ public class Rectangle {
         this.sideB = sideB;
         // Write your code here!
     }
-// Write your code here!
+
+    @Override
+    public void addObserver(Observer o) {
+
+    }
+
+    @Override
+    public void removeObserver(Observer o) {
+
+    }
+
+    @Override
+    public void notifyObserver() {
+
+    }
+
 }

@@ -12,7 +12,9 @@ public class ManufactureFilteringStrategy implements FilteringStrategy {
     @Override
 
     public boolean filter (Product product) {
-
+        if (product == null || product.getManufacture() == null) {
+            return false;
+        }
         return product.getName.equalsIgnoreCase(manufacture);
 
     }
