@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class Product {
+    public double getPrice;
+    public String getName;
     private String name;
     private double price;
     private String manufacture;
