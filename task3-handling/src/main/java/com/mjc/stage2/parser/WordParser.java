@@ -14,6 +14,8 @@ public class WordParser extends AbstractTextParser {
 
             SymbolLeaf sl = new SymbolLeaf(TextComponentType.SYMBOL, c);
 
+
+
             abstractTextComponent.add(sl);
         }
     }

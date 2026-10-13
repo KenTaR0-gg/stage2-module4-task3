@@ -60,10 +60,8 @@ public class Rectangle implements Observable {
 
     @Override
     public void notifyObserver() {
-        // Создаем событие, передавая в него текущий прямоугольник (this)
         RectangleEvent event = new RectangleEvent(this);
 
-        // Рассылаем это событие всем подписанным наблюдателям
         for (Observer observer : observers) {
             observer.handleEvent(event);
         }
