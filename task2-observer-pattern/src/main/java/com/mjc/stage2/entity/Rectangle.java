@@ -34,7 +34,7 @@ public class Rectangle implements Observable {
 
     public void setSideA(double sideA) {
         this.sideA = sideA;
-        // Write your code here!
+        notifyObserver();
     }
 
     public double getSideB() {
@@ -43,7 +43,7 @@ public class Rectangle implements Observable {
 
     public void setSideB(double sideB) {
         this.sideB = sideB;
-        // Write your code here!
+        notifyObserver();
     }
 
     @Override
